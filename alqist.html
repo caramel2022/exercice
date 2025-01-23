@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>القسط - المستوى الثالث</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=El+Messiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            direction: rtl;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: #2980b9;
+            margin-bottom: 20px;
+            font-family: 'El Messiri', sans-serif;
+            background: linear-gradient(to right, #FF4500, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: bold;
+        }
+
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .icon-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-size: 400% 400%;
+            opacity: 0.2;
+            animation: gradientBG 15s ease infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .icon-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-color: #6a5af9;
+        }
+
+        .icon-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .icon-card p {
+            color: #34495e;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .period {
+            margin-bottom: 40px;
+        }
+
+        .period-title {
+            text-align: center;
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            font-family: 'El Messiri', sans-serif;
+            font-weight: bold;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'El Messiri', sans-serif;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .home-button i {
+            font-size: 1.2rem;
+        }
+
+        .general-support {
+            grid-column: 1 / -1;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .general-support .icon-card {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .period:nth-child(1) .period-title {
+            background: linear-gradient(to right, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(1) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #FF6B6B, 
+                #4ECDC4, 
+                #FFD93D, 
+                #6BCB77, 
+                #4D96FF
+            );
+        }
+
+        .period:nth-child(2) .period-title {
+            background: linear-gradient(to right, #FF9F1C, #E71D36);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(2) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #FF9F1C, 
+                #E71D36, 
+                #2EC4B6, 
+                #FDFFFC, 
+                #011627
+            );
+        }
+
+        .period:nth-child(3) .period-title {
+            background: linear-gradient(to right, #6A0572, #AB83A1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(3) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #6A0572, 
+                #AB83A1, 
+                #F3558E, 
+                #7DCE82, 
+                #4ECDC4
+            );
+        }
+
+        .period:nth-child(4) .period-title {
+            background: linear-gradient(to right, #2A9D8F, #264653);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(4) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #2A9D8F, 
+                #264653, 
+                #E9C46A, 
+                #F4A261, 
+                #E76F51
+            );
+        }
+
+        .period:nth-child(5) .period-title {
+            background: linear-gradient(to right, #6A5ACD, #483D8B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(5) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #6A5ACD, 
+                #483D8B, 
+                #7B68EE, 
+                #9370DB, 
+                #BA55D3
+            );
+        }
+
+        .period:nth-child(6) .period-title {
+            background: linear-gradient(to right, #FF4500, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(6) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #FF4500, 
+                #FF6347, 
+                #FF7F50, 
+                #FF8C00, 
+                #FFA500
+            );
+        }
+
+        .save-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px 15px;
+            background-color: #2980b9;
+            color: white;
+            text-align: center;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        .save-button:hover {
+            background-color: #3498db;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i>
+        الصفحة الرئيسية
+    </a>
+    <div class="container">
+        <h1 class="section-title">القسط</h1>
+
+        <div class="periods">
+            <div class="period">
+                <h2 class="period-title">الفترة الأولى</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>أحفظ نفسي وأرعى حقوق غيري</h3>
+                        <p>الوعي بالذات واحترام حقوق الآخرين</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة الثانية</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>أحافظ على سلامة جسمي</h3>
+                        <p>الاهتمام بالصحة والسلامة الجسدية</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة الثالثة</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>أصدق في قولي</h3>
+                        <p>أهمية الصدق والأمانة في التعامل</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة الرابعة</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>أنصر المظلوم</h3>
+                        <p>الوقوف مع الحق ونصرة المظلومين</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة الخامسة</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>أتسامح ولا أظلم</h3>
+                        <p>قيمة التسامح وترك الظلم</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة السادسة</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>المؤمن كله خير</h3>
+                        <p>أخلاق المؤمن وصفاته الحميدة</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#" id="saveButton" class="save-button" onclick="openPresentation()">
+            <i class="fas fa-book-open"></i> احفظ نفسي
+        </a>
+    </div>
+
+    <div class="container general-support">
+        <div class="icons-grid">
+            <div class="icon-card">
+                <h3>دعم عام</h3>
+                <p>مراجعة شاملة وتقييم نهائي لمحتوى القسم</p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function openPresentation() {
+            window.open('https://docs.google.com/presentation/d/1kYAvuGc7JMP33qeRFO5bhe5FEtd_LxEO/edit?usp=drive_link&ouid=116459459672599781004&rtpof=true&sd=true', '_blank');
+        }
+    </script>
+</body>
+</html>

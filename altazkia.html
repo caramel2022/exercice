@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>التزكية - المستوى الثالث</title>
+    <link href="https://fonts.googleapis.com/css2?family=Amiri&family=El+Messiri&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Amiri', serif;
+            background-color: #f0f4f0;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+            text-align: right;
+            background-image: 
+                repeating-radial-gradient(
+                    circle at center,
+                    rgba(41, 128, 185, 0.02) 0px,
+                    rgba(41, 128, 185, 0.02) 50px,
+                    transparent 50px,
+                    transparent 100px
+                ),
+                repeating-linear-gradient(
+                    45deg,
+                    rgba(192, 57, 43, 0.02),
+                    rgba(192, 57, 43, 0.02) 25px,
+                    transparent 25px,
+                    transparent 50px
+                );
+            background-size: 200px 200px, 100px 100px;
+            background-position: center center;
+            background-attachment: fixed;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2rem;
+            color: #2c3e50;
+            margin-bottom: 30px;
+            font-family: 'El Messiri', sans-serif;
+        }
+
+        .periods-container {
+            display: flex;
+            flex-direction: column;
+            gap: 40px;
+        }
+
+        .period {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .period-title {
+            text-align: center;
+            font-size: 1.5rem;
+            color: #2980b9;
+            margin-bottom: 20px;
+            font-family: 'El Messiri', sans-serif;
+            font-weight: bold;
+        }
+
+        .period:nth-child(1) .period-title {
+            background: linear-gradient(to right, #FF6B6B, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(1) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #FF6B6B, 
+                #4ECDC4, 
+                #FFD93D, 
+                #6BCB77, 
+                #4D96FF
+            );
+        }
+
+        .period:nth-child(2) .period-title {
+            background: linear-gradient(to right, #FF9F1C, #E71D36);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(2) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #FF9F1C, 
+                #E71D36, 
+                #2EC4B6, 
+                #FDFFFC, 
+                #011627
+            );
+        }
+
+        .period:nth-child(3) .period-title {
+            background: linear-gradient(to right, #6A0572, #AB83A1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(3) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #6A0572, 
+                #AB83A1, 
+                #F3558E, 
+                #7DCE82, 
+                #4ECDC4
+            );
+        }
+
+        .period:nth-child(4) .period-title {
+            background: linear-gradient(to right, #2A9D8F, #264653);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(4) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #2A9D8F, 
+                #264653, 
+                #E9C46A, 
+                #F4A261, 
+                #E76F51
+            );
+        }
+
+        .period:nth-child(5) .period-title {
+            background: linear-gradient(to right, #6A5ACD, #483D8B);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(5) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #6A5ACD, 
+                #483D8B, 
+                #7B68EE, 
+                #9370DB, 
+                #BA55D3
+            );
+        }
+
+        .period:nth-child(6) .period-title {
+            background: linear-gradient(to right, #FF4500, #FF6347);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .period:nth-child(6) .icon-card::before {
+            background: linear-gradient(
+                45deg, 
+                #FF4500, 
+                #FF6347, 
+                #FF7F50, 
+                #FF8C00, 
+                #FFA500
+            );
+        }
+
+        .icons-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+
+        .icon-card {
+            background-color: #ffffff;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .icon-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background-size: 400% 400%;
+            opacity: 0.2;
+            animation: gradientBG 15s ease infinite;
+            z-index: 1;
+        }
+
+        @keyframes gradientBG {
+            0% {background-position: 0% 50%;}
+            50% {background-position: 100% 50%;}
+            100% {background-position: 0% 50%;}
+        }
+
+        .icon-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+            border-color: #6a5af9;
+        }
+
+        .icon-card h3 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .icon-card p {
+            color: #34495e;
+            font-size: 0.9rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        .home-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-family: 'El Messiri', sans-serif;
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .home-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.3);
+        }
+
+        .home-button i {
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="home-button">
+        <i class="fas fa-home"></i>
+        الصفحة الرئيسية
+    </a>
+    <div class="container">
+        <h1 class="section-title">التزكية</h1>
+        
+        <div class="periods-container">
+            <div class="period">
+                <h2 class="period-title">الفترة الأولى</h2>
+                <div class="icons-grid">
+                    <div class="icon-card" onclick="window.open('https://docs.google.com/presentation/d/1lnkFxoJczOVNbUxJdxU_7jlBszSDF1aW/edit?usp=drive_link&ouid=116459459672599781004&rtpof=true&sd=true', '_blank')">
+                        <h3>سورة الشرح</h3>
+                        <p>دراسة وتفسير سورة الشرح</p>
+                    </div>
+                    <div class="icon-card" onclick="window.open('https://docs.google.com/presentation/d/1BtRQYslmh4lb0Grk3YiPSZjz8m_bUHna/edit?usp=drive_link&ouid=116459459672599781004&rtpof=true&sd=true', '_blank')">
+                        <h3>الله خلقني فأحسن صورتي</h3>
+                        <img src="images/allah-created-me.png" alt="الله خلقني فأحسن صورتي">
+                    </div>
+                    <div class="icon-card" onclick="window.open('https://docs.google.com/presentation/d/1djPmnXizXgE1oUD0x6DXX8kP1tMLDz5G/edit?usp=drive_link&ouid=116459459672599781004&rtpof=true&sd=true', '_blank')">
+                        <h3>سورة العصر</h3>
+                        <img src="images/surah-asr.png" alt="سورة العصر">
+                    </div>
+                    <div class="icon-card" onclick="window.open('https://docs.google.com/presentation/d/1X0nqPTFFnMGdjqVJeQ3E62W4fXxGwFkv/edit?usp=drive_link&ouid=116459459672599781004&rtpof=true&sd=true', '_blank')">
+                        <h3>سورة النصر</h3>
+                        <img src="images/surah-nasr.png" alt="سورة النصر">
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة الثانية</h2>
+                <div class="icons-grid">
+                    <div class="icon-card" onclick="window.open('https://docs.google.com/presentation/d/10hIxIiYrNGsOeJD8segHlGwwxd10O-3p/edit?usp=drive_link&ouid=116459459672599781004&rtpof=true&sd=true', '_blank')">
+                        <h3>سورة الانفطار ج1</h3>
+                        <img src="images/surah-infitar-part1.png" alt="سورة الانفطار ج1">
+                    </div>
+                    <div class="icon-card">
+                        <h3>الله خلقني وأحسن صورتي</h3>
+                        <p>الخالق المصور - فهم عظمة الخلق</p>
+                    </div>
+                    <div class="icon-card" onclick="window.open('https://docs.google.com/presentation/d/10hIxIiYrNGsOeJD8segHlGwwxd10O-3p/edit?usp=drive_link&ouid=116459459672599781004&rtpof=true&sd=true', '_blank')">
+                        <h3>سورة الانفطار ج2</h3>
+                        <img src="images/surah-infitar-part2.png" alt="سورة الانفطار ج2">
+                    </div>
+                    <div class="icon-card">
+                        <h3>سورة الشمس</h3>
+                        <p>دراسة وتفسير سورة الشمس</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة الثالثة</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>سورة الأعلى</h3>
+                        <p>دراسة وتفسير سورة الأعلى</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>الله يعلم ما أسر وما أعلن: العليم الخبير</h3>
+                        <p>فهم علم الله المطلق</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>سورة العاديات</h3>
+                        <p>دراسة وتفسير سورة العاديات</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>سورة الزلزلة</h3>
+                        <p>دراسة وتفسير سورة الزلزلة</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة الرابعة</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>سورة البروج</h3>
+                        <p>دراسة وتفسير سورة البروج</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>الله رقيبي في السر والعلن: الرقيب الشهيد</h3>
+                        <p>فهم رقابة الله وعلمه المطلق</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>سورة الروج</h3>
+                        <p>دراسة وتفسير سورة الروج</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>سورة الكوثر</h3>
+                        <p>دراسة وتفسير سورة الكوثر</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة الخامسة</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>سورة الإنسان ج1</h3>
+                        <p>دراسة وتفسير سورة الإنسان الجزء الأول</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>الله يرحمني ويعفو عني: العفو الرحيم</h3>
+                        <p>فهم رحمة الله وعفوه</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>سورة الإنسان ج2</h3>
+                        <p>دراسة وتفسير سورة الإنسان الجزء الثاني</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="period">
+                <h2 class="period-title">الفترة السادسة</h2>
+                <div class="icons-grid">
+                    <div class="icon-card">
+                        <h3>دعم وتثبيت السور: الانفطار</h3>
+                        <p>تثبيت وإتقان سورة الانفطار</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>دعم وتثبيت السور: الشمس</h3>
+                        <p>تثبيت وإتقان سورة الشمس</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>دعم وتثبيت السور: الأعلى</h3>
+                        <p>تثبيت وإتقان سورة الأعلى</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>الله الجواد الكريم</h3>
+                        <p>التعرف على صفات الله الكريمة</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>دعم وتثبيت السورتين: الكوثر والإنسان</h3>
+                        <p>تثبيت وإتقان سورتي الكوثر والإنسان</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم</h3>
+                        <p>أدوات التقييم والدعم التعليمي</p>
+                    </div>
+                    <div class="icon-card">
+                        <h3>تقويم ودعم عام</h3>
+                        <p>مراجعة شاملة وتقييم عام</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
